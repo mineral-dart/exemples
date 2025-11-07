@@ -1,0 +1,20 @@
+name: voice_demand_bot
+description: A sample Mineral bot that create voice on demand.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+# Add regular dependencies here.
+dependencies:
+  mineral:
+    path: ../../core
+  mineral_cache:
+    path: ../../cache
+  path: ^1.9.0
+  yaml: ^3.1.2
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0
