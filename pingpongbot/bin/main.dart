@@ -23,8 +23,7 @@ void main(_, port) async {
         final now = DateTime.now();
         final diff = now.difference(ctx.interaction.createdAt);
 
-        final builder = MessageBuilder()
-          ..text(
+        final builder = MessageBuilder.text(
             "pong: `${diff.inMilliseconds}ms`\n"
             "interaction id: `${ctx.id}`\n"
             "interaction time: `${ctx.interaction.createdAt}`\n"

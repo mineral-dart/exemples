@@ -8,20 +8,18 @@ import 'package:voice_demand_bot/application/common/states/voice_demand_state.da
 
 final class VoiceLeave extends VoiceLeaveEvent with State {
   @override
-  Future<void> handle(VoiceState? before, VoiceState after) async {
-    if (before == null) return;
-
+  Future<void> handle(VoiceState after) async {
     final voiceDemand = state.read<VoiceDemandState>();
-    final demand = voiceDemand.get(before.channelId!);
+    final demand = voiceDemand.get(after.channelId!);
 
     if (demand == null) return;
 
-    final channel = await before.resolveChannel();
+    final channel = await after.resolveChannel();
     if (channel == null) return;
 
     if (channel.members.isEmpty) {
       await demand.channel.delete(reason: "Voice demand left");
-      voiceDemand.remove(before.channelId!);
+      voiceDemand.remove(after.channelId!);
     }
   }
 }

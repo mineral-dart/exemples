@@ -13,6 +13,6 @@ final class WelcomeEvent extends ServerMemberAddEvent with State {
 
     if (welcomeChannel == null) return;
 
-    await welcomeChannel.send(MessageBuilder()..text("Welcome $member to Mineral, feel free to visit our [github](https://github.com/mineral-dart)!"));
+    await welcomeChannel.send(MessageBuilder.text("Welcome $member to Mineral, feel free to visit our [github](https://github.com/mineral-dart)!"));
   }
 }
